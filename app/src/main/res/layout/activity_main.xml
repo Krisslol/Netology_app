@@ -81,8 +81,8 @@
 
     <ImageButton
         android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="21dp"
+        android:layout_height="23dp"
         android:layout_marginTop="236dp"
         android:layout_marginEnd="30dp"
         android:background="@android:color/transparent"
@@ -147,7 +147,9 @@
         tools:layout_editor_absoluteX="346dp"
         tools:layout_editor_absoluteY="238dp"
         tools:text="@sample/posts.json/data/view"
+
         />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
