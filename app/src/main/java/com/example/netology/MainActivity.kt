@@ -20,17 +20,28 @@ class MainActivity : AppCompatActivity() {
                 author.text = post.author
                 published.text = post.published
                 content.text = post.content
+                numberRepost.text = post.reposts.toString()
                 like.setImageResource(
                     if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
-                ) likes.text = displayNumbers(post.likes.toLong())
+                )
+                numberLike.text = displayNumbers(post.numberLike.toLong())
+                numberRepost.text = displayNumbers(post.numberRepost.toLong())
+                numberView.text = displayNumbers(post.numberView.toLong())
             }
-        }
-        binding.like.setOnClickListener {
-            viewModel.like()
-            viewModel.likes()
-          //  viewModel.repost()
-         //   viewModel.view()
 
         }
+        binding.like.setOnClickListener {
+           viewModel.like()
+            viewModel.numberLike()
+        }
+        binding.repost.setOnClickListener {
+            viewModel.numberRepost()
+            //viewModel.repost()
+        }
+        binding.view.setOnClickListener {
+            viewModel.numberView()
+          //  viewModel.view()
+        }
+
     }
 }

@@ -8,5 +8,7 @@ interface PostRepository {
     fun like()
     fun repost()
     fun view()
-    fun likes()
+    fun numberLike()
+    fun numberRepost()
+    fun numberView()
 }

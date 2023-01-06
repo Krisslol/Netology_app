@@ -16,8 +16,12 @@ class PostRepositoryInMemoryImpl : PostRepository {
         repostedByMe = false,
         views = 9999,
         viewedByMe = false,
+        numberLike = 9999,
+        numberRepost = 9999,
+        numberView = 9999,
 
-    )
+
+        )
     private val data = MutableLiveData(post)
 
     override fun get(): LiveData<Post> = data
@@ -26,17 +30,30 @@ class PostRepositoryInMemoryImpl : PostRepository {
         data.value = post
 
     }
+
     override fun repost() {
         post = post.copy(repostedByMe = !post.repostedByMe)
         data.value = post
     }
+
     override fun view() {
         post = post.copy(viewedByMe = !post.viewedByMe)
         data.value = post
     }
-    override fun likes() {
-        post = if (post.likedByMe) post.copy(likes = post.likes + 1)
-        else post.copy(likes = post.likes - 1)
+
+    override fun numberLike() {
+        post = if (post.likedByMe) post.copy(numberLike = post.numberLike + 1)
+        else post.copy(numberLike = post.numberLike - 1)
+        data.value = post
+    }
+
+    override fun numberRepost() {
+        post = post.copy(numberRepost = post.numberRepost + 1)
+        data.value = post
+    }
+
+    override fun numberView() {
+        post = post.copy(numberView = post.numberView + 1)
         data.value = post
     }
 }

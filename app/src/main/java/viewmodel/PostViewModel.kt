@@ -10,5 +10,7 @@ class PostViewModel : ViewModel() {
     fun like() = repository.like()
     fun repost() = repository.repost()
     fun view() = repository.view()
-    fun likes() = repository.likes()
+    fun numberLike() = repository.numberLike()
+    fun numberRepost() = repository.numberRepost()
+    fun numberView() = repository.numberView()
 }
