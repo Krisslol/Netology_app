@@ -1,4 +1,4 @@
-package repository
+package com.example.netology.repository
 
 import androidx.lifecycle.LiveData
 import com.example.netology.dto.Post
@@ -8,7 +8,7 @@ interface PostRepository {
     fun like()
     fun repost()
     fun view()
-    fun numberLike()
-    fun numberRepost()
-    fun numberView()
+  //  fun numberLike()
+ //   fun numberRepost()
+   // fun numberView()
 }

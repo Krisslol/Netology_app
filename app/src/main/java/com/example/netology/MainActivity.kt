@@ -3,7 +3,7 @@ package com.example.netology
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.netology.databinding.ActivityMainBinding
-import viewmodel.PostViewModel
+import com.example.netology.viewmodel.PostViewModel
 import androidx.activity.viewModels
 import com.example.netology.dto.displayNumbers
 
@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
                 author.text = post.author
                 published.text = post.published
                 content.text = post.content
-                numberRepost.text = post.reposts.toString()
                 like.setImageResource(
                     if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
                 )
@@ -32,15 +31,15 @@ class MainActivity : AppCompatActivity() {
         }
         binding.like.setOnClickListener {
            viewModel.like()
-            viewModel.numberLike()
+       //     viewModel.numberLike()
         }
         binding.repost.setOnClickListener {
-            viewModel.numberRepost()
-            //viewModel.repost()
+       //     viewModel.numberRepost()
+           viewModel.repost()
         }
         binding.view.setOnClickListener {
-            viewModel.numberView()
-          //  viewModel.view()
+          //  viewModel.numberView()
+            viewModel.view()
         }
 
     }

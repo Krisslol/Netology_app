@@ -1,4 +1,4 @@
-package repository
+package com.example.netology.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -28,32 +28,38 @@ class PostRepositoryInMemoryImpl : PostRepository {
     override fun like() {
         post = post.copy(likedByMe = !post.likedByMe)
         data.value = post
-
+        post = if (post.likedByMe) post.copy(numberLike = post.numberLike + 1)
+        else post.copy(numberLike = post.numberLike - 1)
+        data.value = post
     }
 
     override fun repost() {
         post = post.copy(repostedByMe = !post.repostedByMe)
+        data.value = post
+        post = post.copy(numberRepost = post.numberRepost + 1)
         data.value = post
     }
 
     override fun view() {
         post = post.copy(viewedByMe = !post.viewedByMe)
         data.value = post
-    }
-
-    override fun numberLike() {
-        post = if (post.likedByMe) post.copy(numberLike = post.numberLike + 1)
-        else post.copy(numberLike = post.numberLike - 1)
-        data.value = post
-    }
-
-    override fun numberRepost() {
-        post = post.copy(numberRepost = post.numberRepost + 1)
-        data.value = post
-    }
-
-    override fun numberView() {
         post = post.copy(numberView = post.numberView + 1)
         data.value = post
     }
+
+    //override fun numberLike() {
+    //   post = if (post.likedByMe) post.copy(numberLike = post.numberLike + 1)
+    //         else post.copy(numberLike = post.numberLike - 1)
+    //            data.value = post
+    // }
+
+    // override fun numberRepost() {
+    //     post = post.copy(numberRepost = post.numberRepost + 1)
+    //     data.value = post
+    //  }
+
+    // override fun numberView() {
+    //  post = post.copy(numberView = post.numberView + 1)
+    //     data.value = post
+    //  }
 }
