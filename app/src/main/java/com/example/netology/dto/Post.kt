@@ -9,14 +9,14 @@ data class Post(
     val published: String,
     val content: String,
     var likedByMe: Boolean,
-    var likes: Int,
-    var reposts: Int,
-    var repostedByMe: Boolean,
-    var views: Int,
-    var viewedByMe: Boolean,
-    var numberLike:Int,
-    var numberRepost:Int,
-    var numberView:Int,
+ //   var likes: Int,
+   // var reposts: Int,
+   // var repostedByMe: Boolean,
+   // var views: Int,
+   // var viewedByMe: Boolean,
+   // var numberLike:Int,
+  //  var numberRepost:Int,
+   // var numberView:Int,
 
 
 )

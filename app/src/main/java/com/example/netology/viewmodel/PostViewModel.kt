@@ -5,12 +5,11 @@ import com.example.netology.repository.PostRepository
 import com.example.netology.repository.PostRepositoryInMemoryImpl
 
 class PostViewModel : ViewModel() {
+    // упрощённый вариант
     private val repository: PostRepository = PostRepositoryInMemoryImpl()
-    val data = repository.get()
-   fun like() = repository.like()
-    fun repost() = repository.repost()
-    fun view() = repository.view()
+    val data = repository.getAll()
+    fun likeById(id: Long) = repository.likeById(id)
+}
   //  fun numberLike() = repository.numberLike()
    // fun numberRepost() = repository.numberRepost()
   // fun numberView() = repository.numberView()
-}
