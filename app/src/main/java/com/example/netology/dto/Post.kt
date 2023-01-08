@@ -13,7 +13,11 @@ data class Post(
     var reposts: Int,
     var repostedByMe: Boolean,
     var views: Int,
-    var viewedByMe: Boolean
+    var viewedByMe: Boolean,
+    var numberLike:Int,
+    var numberRepost:Int,
+    var numberView:Int,
+
 
 )
 
