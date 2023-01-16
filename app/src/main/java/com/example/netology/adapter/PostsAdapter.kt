@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.netology.dto.Post
 import com.example.netology.R
 import com.example.netology.databinding.CardPostBinding
+import com.example.netology.dto.displayNumbers
 
 typealias OnLikeListener = (post: Post) -> Unit
+typealias OnRepostListener = (post: Post) -> Unit
 
 class PostsAdapter(private val onLikeListener: OnLikeListener) : RecyclerView.Adapter<PostViewHolder>() {
     var list = emptyList<Post>()
@@ -15,6 +17,7 @@ class PostsAdapter(private val onLikeListener: OnLikeListener) : RecyclerView.Ad
             field = value
             notifyDataSetChanged()
         }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val binding = CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -38,15 +41,20 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-//            like.setImageResource(
-//                if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
-//            )
-            if (post.likedByMe) {
-                like.setImageResource(R.drawable.ic_baseline_favorite_24)
-            }
-            like.setOnClickListener{
+            like.setImageResource(
+                if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
+            )
+            numberLike.text = displayNumbers(post.numberLike.toLong())
+
+            like.setOnClickListener {
                 onLikeListener(post)
             }
+         binding.root.setOnClickListener {
+
+        }
+         numberRepost.text = displayNumbers(post.numberRepost.toLong())
         }
     }
 }
+  //  }
+//}
